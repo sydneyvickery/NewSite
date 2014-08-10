@@ -1,0 +1,10 @@
+{
+  "name": "NEW",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "fontawesome": "~4.1.0",
+    "jquery": "~2.1.1",
+    "html5shiv": "~3.7.2"
+  }
+}
