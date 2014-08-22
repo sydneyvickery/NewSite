@@ -1,0 +1,34 @@
+
+/* COLORS */
+
+$green-light:#28ae8d;
+$green-mid:#2a9d81;
+$green-dark:#2a8770;
+
+$gray-light:#ebf2f8;
+$gray-mid:#9eadb9;
+$gray-dark:#788793;
+$gray-darker:#444e57;
+
+$pink:#ebae9f;
+
+/* TYPE */
+
+$text-color:$gray-mid;
+$text-family:'Roboto', Helvetica, sans-serf;
+$text-headername: 32px 'Roboto Slab', Helvetica, sans-serif;
+
+
+/* LAYOUT */
+
+$innerwrap-width:1200px;
+$innerwrap-padding:30px;
+
+$header-height:80px;
+
+
+/* GRID */
+
+$grid-columns: 6; // Total number of columns in the grid
+$max-width: $innerwrap-width + (2 * $innerwrap-padding);
+$gutter: .47em; // Gutter between each two columns

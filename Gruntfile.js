@@ -49,10 +49,23 @@ module.exports = function(grunt) {
 		    }
 		  }
 		},
+
+		build_html: {
+			dev: {
+				options: {
+	   				templates: ['layout/header.html','layout/footer.html']
+			    },
+			    expand: true,
+			    cwd: 'views/',
+			    src: ['*.html'],
+			    dest: '.',
+			    ext: '.html'
+			}
+		},
 		watch: {
 			livereload: {
-				files: ['!node_modules/**','*.html', 'js/**/*.js', 'styles/**/*.scss','img/**/*.{png,jpg,jpeg,gif}'],
-				tasks: ['sass'],
+				files: ['!node_modules/**','!bower_components/**','views/*.html','views/work/*.html','layout/*.html','js/**/*.js', 'styles/**/*.scss','img/**/*.{png,jpg,jpeg,gif}'],
+				tasks: ['sass','build_html'],
 				options: {
 					livereload: true
 				}
@@ -65,3 +78,4 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['uglify','sass','autoprefixer','cssmin']);
 
 };
+
