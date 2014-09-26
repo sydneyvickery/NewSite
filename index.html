@@ -5,8 +5,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <title>Sydney Vickery :: Design Portfolio</title>
+	<link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
+
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="/js/html5shiv.min.js"></script>
+	    <link rel="stylesheet" href="/styles/old-ie.css">
+	<![endif]-->
+	<!--[if gt IE 8]><!-->
+	    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+	<!--<![endif]-->
+
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,900' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
@@ -14,8 +23,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/contact.js"></script>
     <script src="/js/base.js"></script>
-
-    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
 </head>
 <body>
@@ -27,19 +34,24 @@
 			<div class="inner_wrapper">
 				<a class="header_name" href="/">Sydney Vickery</a>
 				<ul>
-					<li><a href="/" class="work">Work</a></li>
-					<li><a href="/resume.html" class="resume">Resume</a></li>
-					<li><a href="#contact" class="contact">Contact</a></li>
+					<li><a href="/" id="work" class=active>Work</a></li>
+					<li><a href="/resume/" id="resume" class= >Resume</a></li>
+					<li><a href="#contact_anchor" id="contact">Contact</a></li>
 				</ul>
 			</div>
 		</nav>
 
 
-
 		<div class="header_heading-home">
 			<div class="inner_wrapper">
 				<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan sed urna in commodo. Curabitur pulvinar odio quis mauris mollis volutpat. My name is Sydney and I’m a web designer and front-end developer. You can see my work below. 
+				My name is Sydney and I’m a web designer and front-end developer living in the South Bay. 
+
+				I've always been passionate about both the aesthetic and the technical.
+
+				Good design and best practices are important to me, and I enjoy working with others who feel the same.
+
+				You can see a selection of my work below. 
 				</p>
 				<img src="/img/trees.png" />
 				<div class="clear"></div>
@@ -51,69 +63,96 @@
 <div class="content">
     <div class="inner_wrapper cf">
 
-	    <div class="work_thumb">
-	    
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="/test.html"> 
-	    		<div class="work_thumb-label">Test</div>
-	    	</a>
+	    <div class="work_thumb"> 
+    		<img src="/img/th_VisusWorkflow.png" />
+	    	<a class="work_thumb-link" href="/VisusWorkflow/"></a>
+    		<div class="work_thumb-label">
+		    	<div class="arrow-up"></div>
+    			Visus Workflow
+			</div>
 	    </div>
+
 	    <div class="work_thumb end">
-	    	
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="#">
-	    		<div class="work_thumb-label">The Project Name Here</div>
-	    	</a>
+    		<img src="/img/th_NewVisusSite.png" />
+	    	<a class="work_thumb-link" href="/VisusUpdate/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>
+	    		Visus LLC Update
+    		</div>
 	    </div>
-
-
-	    <div class="work_thumb">
-	    	
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="#">
-	    		<div class="work_thumb-label">The Project Name Here</div>
-	    	</a>
-	    </div>
-	    <div class="work_thumb end">
-	    	
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="#">
-	    		<div class="work_thumb-label">The Project Name Here</div>
-	    	</a>
-	    </div>
-
 
 	    <div class="work_thumb">
+    		<img src="/img/th_Visus.png" />
+	    	<a class="work_thumb-link" href="/Visus/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>	
+    			Visus LLC
+			</div>
 	    	
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="#">
-	    		<div class="work_thumb-label">The Project Name Here</div>
-	    	</a>
 	    </div>
+
 	    <div class="work_thumb end">
-	    	
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="#">
-	    		<div class="work_thumb-label">The Project Name Here</div>
-	    	</a>
+    		<img src="/img/th_Guides.png" />
+	    	<a class="work_thumb-link" href="/CurvatureGuides/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>
+    			Curvature Guides
+			</div>
 	    </div>
 
-
-	    <div class="work_thumb m0">
-	    	
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="#">
-	    		<div class="work_thumb-label">The Project Name Here</div>
-	    	</a>
-	    </div>
-	    <div class="work_thumb end m0">
-	    	
-	    	<div class="arrow-up"></div>
-	    	<a class="work_thumb-link" href="#">
-	    		<div class="work_thumb-label">The Project Name Here</div>
-	    	</a>
+	    <div class="work_thumb">
+    		<img src="/img/th_Isolite.png" />
+	    	<a class="work_thumb-link" href="/Isolite/"></a>
+    		<div class="work_thumb-label">
+		    	<div class="arrow-up"></div>
+		    	Isolite Systems
+	    	</div>
 	    </div>
 
+	    <div class="work_thumb end">
+    		<img src="/img/th_CMSB.png" />
+	    	<a class="work_thumb-link" href="/ChildrensMuseum/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>
+    			Children's Museum of Santa Barbara
+			</div>
+	    </div>
+
+	    <div class="work_thumb">
+    		<img src="/img/th_Chumash.png" />
+	    	<a class="work_thumb-link" href="/ChumashCasino/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>
+    			Chumash Casino Ticketing System
+			</div>
+	    </div>
+
+	    <div class="work_thumb end">
+    		<img src="/img/th_CLA.png" />
+	    	<a class="work_thumb-link" href="/CityofLA/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>
+    			City of Los Angeles - Human Resource Management System
+			</div>
+	    </div>
+
+	    <div class="work_thumb">
+    		<img src="/img/th_BMGC.png" />
+    		<a class="work_thumb-link" href="/DeepOcean/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>
+    			Blue Marble Gaming Company - DeepOcean
+			</div>
+	    </div>
+
+	    <div class="work_thumb end">
+    		<img src="/img/th_Maps.png" />
+	    	<a class="work_thumb-link" href="/Maps/"></a>
+    		<div class="work_thumb-label">
+	    		<div class="arrow-up"></div>
+    			Maps.com
+			</div>
+	    </div>
 
     </div>
 </div>
@@ -123,16 +162,18 @@
 			<footer>
 
 				<div class="footer_contact">
+					<div id="contact_anchor"></div>
 					<div class="inner_wrapper cf">
 						<img src="/img/bush.png" />
 						<div class="footer_contact-text">
-							<h1 id="contact">Contact Me</h1>
-							<p>If you’d like to ask a question or just say hi, I'd love to hear from you!<br/> For an easy way to reach me, you can use the form.</p>
+							<h1>Contact Me</h1>
+							<p>If you’d like to ask a question or just say hi, I'd love to hear from you!
+							For an easy way to reach me, you can use the form.</p>
 
 							<p>If you don’t like forms, you can contact me at 
 							<a href="mailto:sydneyy@gmail.com">sydneyy@gmail.com</a>.</p>
 						</div>
-						<div class="footer_contact-form">
+						<div class="footer_contact-form end">
 							
 							<form id="ajax-contact" method="post" action="mailer.php">
 								<label for="name">Name:</label>
@@ -157,11 +198,11 @@
 					<div class="inner_wrapper">
 						<span>&copy; 2014 Sydney Vickery</span>
 						<div class="social">
-							<a href="#"><i class="fa fa-envelope-square"></i></a>
-							<a href="#"><i class="fa fa-facebook-square"></i></a>
-							<a href="#"><i class="fa fa-linkedin-square"></i></a> 
-							<a href="#"><i class="fa fa-instagram"></i></a>
-							<a href="#"><i class="fa fa-deviantart"></i></a>
+							<a href="mailto:sydneyy@gmail.com"><i class="fa fa-envelope-square"></i></a>
+							<a href="https://www.facebook.com/sydneyvickery" target="_blank"><i class="fa fa-facebook-square"></i></a>
+							<a href="http://www.linkedin.com/in/sydneyvickery/" target="_blank"><i class="fa fa-linkedin-square"></i></a> 
+							<a href="http://instagram.com/sheepover" target="_blank"><i class="fa fa-instagram"></i></a>
+							<a href="http://snut.deviantart.com" target="_blank"><i class="fa fa-deviantart"></i></a>
 						</div>
 					</div>
 				</div>

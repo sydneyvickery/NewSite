@@ -5,6 +5,7 @@ $green-light:#28ae8d;
 $green-mid:#2a9d81;
 $green-dark:#2a8770;
 
+$gray-lighter:#f3f7fb;
 $gray-light:#ebf2f8;
 $gray-mid:#9eadb9;
 $gray-dark:#788793;
@@ -21,7 +22,7 @@ $text-headername: 32px 'Roboto Slab', Helvetica, sans-serif;
 
 /* LAYOUT */
 
-$innerwrap-width:1200px;
+$innerwrap-width:1300px;
 $innerwrap-padding:30px;
 
 $header-height:80px;
@@ -29,6 +30,31 @@ $header-height:80px;
 
 /* GRID */
 
-$grid-columns: 6; // Total number of columns in the grid
+$grid-columns: 6; 
 $max-width: $innerwrap-width + (2 * $innerwrap-padding);
-$gutter: .47em; // Gutter between each two columns
+$gutter: .47em;
+
+/* MQs */
+
+/*$baby-bear: new-breakpoint(min-width 600px);
+$mama-bear: new-breakpoint(min-width 750px);
+$papa-bear: new-breakpoint(min-width $max-width);*/
+
+$baby-bear: 600px;
+$mama-bear: 750px;
+$papa-bear: $max-width;
+
+/* also a mixins */
+
+$old-ie: false !default;
+
+@mixin respond-min($width) {
+    @if $old-ie {
+       @content;   
+    }
+    @else {
+        @media screen and (min-width: $width) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+$old-ie: true;
+@import 'style';
+
+nav { position:relative; }
+nav,
+.wrapper,
+.header_heading-home,
+.header_heading,
+.footer_contact,
+.footer_footer { min-width:700px; }
+.header_heading, .header_heading-home { margin-top:0 !important; }

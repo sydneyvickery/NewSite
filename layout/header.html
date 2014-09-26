@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title><%- title %></title>
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+	<link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
+
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="/js/html5shiv.min.js"></script>
+	    <link rel="stylesheet" href="/styles/old-ie.css">
+	<![endif]-->
+	<!--[if gt IE 8]><!-->
+	    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+	<!--<![endif]-->
+
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,900' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
@@ -14,8 +23,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/contact.js"></script>
     <script src="/js/base.js"></script>
-
-    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
 </head>
 <body>
@@ -27,11 +34,10 @@
 			<div class="inner_wrapper">
 				<a class="header_name" href="/">Sydney Vickery</a>
 				<ul>
-					<li><a href="/" class="work">Work</a></li>
-					<li><a href="/resume.html" class="resume">Resume</a></li>
-					<li><a href="#contact" class="contact">Contact</a></li>
+					<li><a href="/" id="work" class=<%- work %>>Work</a></li>
+					<li><a href="/resume/" id="resume" class=<%- resume %>>Resume</a></li>
+					<li><a href="#contact_anchor" id="contact">Contact</a></li>
 				</ul>
 			</div>
 		</nav>
-
 

@@ -31,7 +31,8 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'styles/style.css': 'styles/style.scss'
+					'styles/style.css': 'styles/style.scss',
+					'styles/old-ie.css': 'styles/old-ie.scss'
 				}
 			}
 		},

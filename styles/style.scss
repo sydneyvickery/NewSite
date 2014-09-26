@@ -9,7 +9,7 @@ SETUP
 
 *, *:before, *:after { -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; margin:0; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 html, body { height:100%; margin:0; }
-body { background:#fff; font-family:$text-family; color:$text-color; font-size:16px; }
+body { background:#fff; font-family:$text-family; color:$text-color; font-size:16px; -webkit-text-size-adjust: none; }
 .clear { clear:both;}
 .cf:after { clear:both; content:''; display:table; }
 
@@ -17,25 +17,44 @@ body { background:#fff; font-family:$text-family; color:$text-color; font-size:1
 TEXT
 ---------------*/
 
-a { text-decoration:none; @include transition; }
+a { text-decoration:none; @include transition(color .2s ease-in-out); }
 h1 { font-size:38px; font-weight:500; }
-h2 { font-size:25px; font-weight:500; margin-bottom:30px; color:$gray-darker; }
+h2 { font-size:25px; font-weight:500; margin-bottom:20px; color:$gray-darker; 
+	@include respond-min($baby-bear) { margin-bottom:30px }
+}
 p { line-height:25px; }
+ul { padding:0; }
 
 /*---------------
 LAYOUT
 ---------------*/
 
 .wrapper { display:table; width:100%; height:100%; table-layout:fixed; }
-.inner_wrapper { margin:0 auto; padding:0 $innerwrap-padding; @include outer-container; }
+.inner_wrapper { margin:0 auto; padding:0 15px; @include outer-container; 
+	@include respond-min($baby-bear) {	
+		padding:0 $innerwrap-padding;
+	}
+}
 .end { margin-right:0 !important; }
 
-nav { background:$gray-darker; height:$header-height; position:fixed; top:0; left:0; width:100%; z-index:2;
-	.header_name { font:$text-headername; color:$gray-light; font-weight:300; line-height:$header-height;
-		&:hover { color:#fff; }
+nav { background:$gray-darker; min-height:$header-height; width:100%; 
+	@include respond-min($baby-bear) {	
+		position:fixed; top:0; left:0; z-index:2;
 	}
-	ul { float:right;
-		li { display:inline-block; height:$header-height; line-height:$header-height; padding:0 0 0 15px;
+	.header_name { font:$text-headername; font-size:27px; color:$gray-light; font-weight:300; line-height:50px; display:block; text-align:center;
+		&:hover { color:#fff; }
+		@include respond-min($baby-bear) {	
+  			font:$text-headername; float:left; line-height:$header-height; height:$header-height;	
+		}
+	}
+	ul { text-align:center; padding-right:25px;
+		@include respond-min($baby-bear) {	
+  			float:right; padding:0; 
+		}
+		li { display:inline-block; padding:2px 0 15px 25px;
+			@include respond-min($baby-bear) {	
+	  			height:$header-height; line-height:$header-height; padding:0 0 0 15px;
+			}
 			a { text-transform:uppercase; font-size:15px; font-weight:900; color:#f0f0f0; 
 				&:hover { color:#fff; }
 				&.active { color:$pink; }
@@ -43,36 +62,79 @@ nav { background:$gray-darker; height:$header-height; position:fixed; top:0; lef
 		}
 	}
 }
-
-.header_heading { background:$green-light; margin-top:$header-height; color:#fff; 
-	h1 { height:110px; line-height:110px; text-align:center; }
+.header_heading { background:$green-light; color:#fff; 
+	@include respond-min($baby-bear) {	
+		margin-top:$header-height;
+	}	
+	h1 { padding:23px 0; text-align:center; font-size:33px;
+		@include respond-min($papa-bear) {	
+			height:110px; line-height:110px; padding:0;
+		}	
+		@include respond-min($mama-bear) { font-size:38px; }	
+	}
 }
 
 .header_heading-home { @extend .header_heading; min-height:170px;
+	@include respond-min($baby-bear) {	
+		margin-top:$header-height;
+	}	
 	.inner_wrapper { position:relative; }
-	p { font-size:17px; line-height:30px; padding:40px 0; @include span-columns(4); }
+	p { font-size:17px; line-height:30px; padding:20px 0; @include span-columns(6);
+		@include respond-min($baby-bear) {	
+	  		@include span-columns(4); padding:40px 0; 
+		}
+	}
 	&:after { content:''; display:table; clear:both; }
-	img { width:196px; height:128px; position:absolute; right:$innerwrap-padding; bottom:0; @include image-rendering(crisp-edges); }
+	img { display:none;
+		@include respond-min($baby-bear) {	
+	  		display:block; width:196px; height:128px; position:absolute; right:$innerwrap-padding; bottom:0; @include image-rendering(crisp-edges); 
+		}
+	}
 }
 
-.content { margin:50px 0 100px 0; }
+.content { margin:30px 0 30px 0; 
+	@include respond-min($mama-bear) {	
+		margin:30px 0 50px 0;
+	}
+	@include respond-min($papa-bear) {
+		margin:50px 0 50px 0;
+	}
+}
 
 footer { height:0.1%; position:relative; display:table-row; height:1px; 
-	.footer_contact { background:$green-light; color:#fff; font-size:17px; padding:50px 0; position:relative;
+	.footer_contact { background:$green-light; color:#fff; font-size:17px; padding:50px 0; position:relative; overflow:hidden;
 			img { width:474px; height:73px; position:absolute; bottom:0; left:0; @include image-rendering(crisp-edges); }
-		.footer_contact-text { @include span-columns(3); 
+		.footer_contact-text { @include span-columns(6); 
+			@include respond-min($mama-bear) {	
+		  		@include span-columns(3); padding-right:50px;
+			}
 			h1 { margin-bottom:30px; }
 			p { line-height:30px; margin-bottom:30px; }
 			a { color:$gray-darker; }
 		}
-		.footer_contact-form { @include span-columns(3); background:#fff; margin-bottom:0; @include border-radius(6px);
+		.footer_contact-form { @include span-columns(6); background:#fff; margin-bottom:0; @include border-radius(6px);
+			@include respond-min($mama-bear) {	
+		  		@include span-columns(3);
+			}
 		}
 		&:after { content:''; display:table; clear:both; }
 	} 
-	.footer_footer { background:$gray-darker; height:80px; line-height:80px; color:$gray-mid; font-size:15px; text-transform:uppercase; font-weight:900; 
-		.social { float:right;  height:80px; line-height:80px;
-			a { color:$gray-mid; font-size:24px; margin-left:5px; @include transition;
+	.footer_footer { background:$gray-darker; color:$gray-mid; font-size:15px; text-transform:uppercase; font-weight:900; @extend .cf;
+		span { display:inline-block; width:100%; text-align:center; padding:20px 0 5px 0;
+			@include respond-min($baby-bear) {	
+		  		width:auto; text-align:left; height:80px; line-height:80px; float:left; padding:0;
+			}
+		}
+		.social { width:100%; text-align:center; padding:0 0 15px 0;
+			@include respond-min($baby-bear) {	
+		  		float:right; width:auto; height:80px; line-height:80px; padding:0;
+			}
+			a { color:$gray-mid; font-size:40px; margin-left:10px; 
 				&:hover { color:$gray-light; }
+				&:first-child { margin-left:0; }
+				@include respond-min($baby-bear) {	
+			  		font-size:24px; margin-left:5px;
+				}
 			}
 		}
 	}
@@ -82,27 +144,42 @@ footer { height:0.1%; position:relative; display:table-row; height:1px;
 LANDING PAGE
 ---------------*/
 
-.work_thumb { @include span-columns(3); background:$gray-light; height:350px; position:relative; margin-bottom:20px;
-	.arrow-up { width:0; height:0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #fff; position:absolute; bottom:37px; left:17px; z-index:1; }
-	.work_thumb-link { position:absolute; top:0; left:0; width:100%; height:100%; 
-		.work_thumb-label { background:#fff; border:2px solid $gray-light; width:100%; position:absolute; bottom:0; left:0; min-height:40px; line-height:36px; color:$gray-mid; font-size:17px; padding:0 15px; @include transition; font-weight:500; }
-		&:hover .work_thumb-label { color:$green-light; }
+.work_thumb { @include span-columns(6); background:$gray-light; position:relative; margin-bottom:30px; @include transition; text-align:center; font-size:0;
+	@include respond-min($mama-bear) {	
+  		@include span-columns(3); margin-bottom:30px
 	}
+	&:hover { background:$gray-lighter; @include border-radius(20px); }
+	img { max-width:100%; min-height:170px; }
+	.work_thumb-link { position:absolute; top:0; left:0; width:100%; height:100%; 
+		@include respond-min($mama-bear) { background:url('/img/clearpx.png') repeat;	}
+	}
+	.work_thumb-label { background:#fff; border:2px solid $gray-light; border-top:none; width:100%; min-height:40px; line-height:23px; color:$gray-mid; font-size:17px; padding:6px 15px; @include transition; font-weight:500; text-align:left; position:relative;
+		.arrow-up { width:0; height:0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #fff; position:absolute; top:-8px; left:16px; z-index:1; }
+	}
+	&:hover .work_thumb-label { border-color:lighten($gray-light, 2%); color:$green-light; @include border-bottom-radius(20px); }
+
 }
 
 /*---------------
 CONTACT FORM
 ---------------*/
 
-.footer_contact-form { padding:30px;
-	.success { color:$green-light; font-size:16px; position:relative; padding-left:30px; line-height:40px; color:$gray-mid;
-		&:before { content:'\f058'; font-family:'FontAwesome'; color:$green-light; font-size:25px; position:absolute; left:0; top:0; }
+.footer_contact-form { padding:15px;
+	@include respond-min($baby-bear) {	
+  		padding:30px;
 	}
-	.error { color:#f66c6c; font-size:16px; height:40px; width:380px; }
+	.success { max-width:100%; color:$green-light; font-size:16px; position:relative; padding-left:30px; color:$gray-mid;  margin-bottom:15px; 
+		&:before { content:'\f058'; font-family:'FontAwesome'; color:$green-light; font-size:25px; position:absolute; left:0; top:0; }
+		@include respond-min($baby-bear) { max-width:none; }
+	}
+	.error {  max-width:100%; color:#f66c6c; font-size:15px; margin-bottom:15px; 
+		@include respond-min($baby-bear) { max-width:50%; }
+	}
 
 	label { display:block; color:$pink; margin-bottom:5px; font-weight:500; }
-	input[type="text"],input[type="email"], textarea {  @include appearance(none); width:100%; background:$gray-light; border:2px solid $gray-light; height:40px; line-height:40px; margin-bottom:15px; font-family:$text-family; font-size:17px; color:$text-color; padding:0 10px; font-size:15px; @include transition;
+	input[type="text"],input[type="email"], textarea { @include appearance(none); width:100%; background:$gray-light; border:2px solid $gray-light; height:40px; line-height:40px; margin-bottom:15px; font-family:$text-family; color:$text-color; padding:0 10px; font-size:16px; @include transition;
 		&:focus { outline:none; background:#fff }
+		@include respond-min($baby-bear) { font-size:15px; }
 	}
 	textarea { height:100px; line-height:25px; padding:5px 10px; resize:vertical; }
 	.messages { float:left;  }
@@ -113,9 +190,17 @@ CONTACT FORM
 BUTTONS
 ---------------*/
 
-.button, a.button { font-family:$text-family; font-weight:700; display:inline-block; @include transition; @include appearance(none); border:none; background:$pink; color:#fff; @include border-radius(3px); font-size:17px; min-width:130px; height:40px; line-height:38px; padding:0 25px;
-	&:focus { outline:none;  }
-	&:hover { background:lighten($pink, 3%); @include border-radius(20px); cursor:pointer; }
+.button, a.button { width:100%; text-align:center; font-family:$text-family; font-weight:700; display:inline-block; @include appearance(none); border:none; background:$pink; color:#fff; @include border-radius(3px); font-size:21px; min-width:130px; height:60px; line-height:58px; padding:0 25px;
+	@include respond-min($baby-bear) {	
+  		 width:auto; height:40px; line-height:38px; font-size:17px; @include transition;
+	}
+	&:hover { 
+		@include respond-min($baby-bear) {	
+	  		 background:lighten($pink, 3%); @include border-radius(20px); cursor:pointer; 
+		}
+	}
+	&:focus { outline:none; }
+
 }
 .button i { margin-right:5px; }
 
@@ -124,22 +209,45 @@ BUTTONS
 RESUME
 ---------------*/
 
-.resume-left { @include span-columns(4); padding-right:60px; }
-.resume-right { @include span-columns(2); margin-right:0; }
+.resume-left { @include span-columns(6); 
+	@include respond-min($mama-bear) {	
+  		@include span-columns(4); padding-right:60px; 
+	}
+}
+.resume-right { @include span-columns(6); margin-right:0;
+	@include respond-min($mama-bear) {	
+  		@include span-columns(2);
+	}
+}
 
-.resume-right, .resume-left { font-size:15px; line-height:25px; color:$gray-dark; margin-bottom:0;
+.resume-right, .resume-left { font-size:16px; line-height:27px; color:$gray-dark; margin-bottom:0;
+	@include respond-min($mama-bear) {	
+  		font-size:15px; line-height:25px;
+	}
 	> div { color:$gray-mid; margin-bottom:5px; }
 	.company, .skills-cat { color:$gray-dark; font-weight:700; }
 	.title { color:$pink; }
 	.date { color:$gray-mid; font-style:italic; margin-bottom:7px; }
 	p { margin-bottom:40px; }
 
-	.skills { @include span-columns(3); margin-bottom:0; }
+	.skills { @include span-columns(3); padding-right:20px; 
+		@include respond-min($baby-bear) {	
+	  		float:left; width:auto; padding-right:40px; 
+		}
+		@include respond-min($mama-bear) {	
+	  		@include span-columns(3); padding-right:30px; 
+		}
+	}
 
 	ul { padding:0; list-style-type:none; margin-bottom:30px; color:$gray-dark;
 		li { position:relative; padding-left:12px; 
 			&:before { content:'\f111'; font-family:'FontAwesome'; font-size:3px; position:absolute; top:0; left:0; }
 		}
+	}
+	.button-download { margin:0 0 40px 0;
+		@include respond-min($mama-bear) {	
+			margin:40px 0 0 0;
+		}	
 	}
 }
 
@@ -148,14 +256,67 @@ RESUME
 PROJECT
 ---------------*/
 
-.work_block { @include span-columns(4); @include omega; margin-bottom:40px;
+.work_block { margin-bottom:40px;
+	@include respond-min($mama-bear) { @include span-columns(4); @include omega; margin:0 auto 40px auto; float:none; }
 	.work_block-heading { color:$gray-mid; font-weight:300; margin-bottom:20px;
 		span { color:$pink; font-weight:400;  }
 	} 
 	p { line-height:27px; }
 }
 
-.work_image { background:$gray-light; width:100%; height:800px; }
+.work_image-hero { margin-bottom:20px; 
+	img { max-width:100%; }
+	@include respond-min($mama-bear) { margin-bottom:30px; }	
+}
+
+.work_image-screenshot { max-width:1000px; margin:0 auto 20px auto;
+	img { max-width:100%; }
+	@include respond-min($mama-bear) { margin-bottom:50px; }	
+}
+.work_image-hero + .work_image-screenshot,
+.clear + .work_image-screenshot { margin-top:30px;
+	@include respond-min($mama-bear) { margin-top:50px; }	
+}
+
+.work_image-mobile { @include span-columns(6); margin-bottom:20px;
+	img { max-width:100%; }
+	@include respond-min($baby-bear) { @include span-columns(2); }
+}
+
+.work_image-tablet { @include span-columns(6); margin-bottom:20px; @include omega;
+	img { max-width:100%; }
+	@include respond-min($baby-bear) { @include span-columns(4); }
+}
+
+.work_footer { @extend .cf; background:$gray-light;
+	@include respond-min($baby-bear) { background:#fff; margin-top:-50px; }
+	
+	.work_footer-prev { float:left;
+		@include respond-min($baby-bear) { margin-left:-20px; }
+		i { margin-right:10px;  }
+		a { padding-left:15px; 
+			@include respond-min($baby-bear) { padding:20px 40px 20px 20px; }
+		}
+	}
+	.work_footer-next { text-align:right; float:right; 
+		@include respond-min($baby-bear) { margin-right:-20px; }
+		i { margin-left:10px;  }
+		a { padding-right:15px; 
+			@include respond-min($baby-bear) { padding:20px 20px 20px 40px; }
+		}
+	}
+	> div { @include transition; position:relative; width:100%;
+		@include respond-min($baby-bear) { width:auto; height:auto; }
+		i { font-size:13px; position:relative; top:-1px; }
+		a { font-weight:500; font-size:17px; color:$gray-mid; padding:20px 0; width:100%; display:block; border-bottom:1px solid #fff;
+			@include respond-min($baby-bear) { color:$gray-mid; }
+		}
+		&:hover a { color:$gray-darker; }
+	}
+}
+.work_footer-outer { padding:0;
+	@include respond-min($baby-bear) { padding:0 $innerwrap-padding; }
+}
 
 
 /*---------------

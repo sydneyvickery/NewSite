@@ -4,14 +4,14 @@ $(function() {
 
     if ( pathname.indexOf("resume") >= 0) {
         var target = 'resume';
-        $('.resume').attr('href','#top');
+        $('#resume').attr('href','#top');
     } else if (pathname == '/') { 
         var target = 'work'; 
-        $('.work').attr('href','#top');
+        $('#work').attr('href','#top');
     } else {
         var target = 'work'; 
     }
-    $('.'+target).addClass('active');
+    //$('.'+target).addClass('active');
 
 
     $(window).scroll(function () {
@@ -19,12 +19,14 @@ $(function() {
         var bottom_dist = $(window).height() + $(window).scrollTop();
 
         if ( (wrapper_height - bottom_dist) <= 200) {
-            $('.'+target).removeClass('active');
-            $('.contact').addClass('active');
+            $('#contact').addClass('active');
+            $('#'+target).removeClass('active');
+            console.log('remove');
         }
         else if ( (wrapper_height - bottom_dist) >= 450) {
-            $('.'+target).addClass('active');
-            $('.contact').removeClass('active');
+            $('#'+target).addClass('active');
+            $('#contact').removeClass('active');
+            console.log('add');
         }
     });
 
